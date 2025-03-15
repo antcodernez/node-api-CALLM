@@ -12,6 +12,12 @@ const app = express()
 // connect to the DB
 connectDB();
 
+// Middleware to JSON
+app.use(express.json()); 
+
+// Dishable the header x-powered-by
+app.disable('x-powered-by')
+
 //use morgan
 app.use(morgan("dev"))
 
