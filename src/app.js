@@ -54,8 +54,16 @@ app.get("/api/v1/swagger.json", (req, res) => {
 });
 
 // Definition of the swagger docs
-app.use("/api/v1/docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
-
+// Forzar el uso correcto de archivos estáticos en producción
+app.use("/api-docs", swaggerUi.serve, async (req, res, next) => {
+    try {
+      const html = swaggerUi.generateHTML(swaggerDocument);
+      res.send(html);
+    } catch (error) {
+      next(error);
+    }
+  });
+  
 // Handle Routes not found
 app.use(handleRoutesNotFound);
 
