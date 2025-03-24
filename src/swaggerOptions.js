@@ -15,7 +15,7 @@ const swaggerOptions = {
             securitySchemes: SECURITY
         }
     },
-    apis: ["./src/routes/*.js"]
+    apis: ["./src/routes/v1/*.js"]
 }
 
 const swaggerSpec = swaggerJSDoc(swaggerOptions)
