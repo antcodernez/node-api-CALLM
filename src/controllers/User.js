@@ -89,3 +89,8 @@ export const getAllMyUsers = async (req, res) => {
         errorHandler(error, req, res)
     }
   };
+
+
+  export const updatePassword = async (req, res) => {
+    
+  }

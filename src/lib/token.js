@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
 
-import { config } from "../config/config";
+import { config } from "../config/config.js";
 
 export const generateAccessToken = (user) => {
   return jwt.sign(
@@ -27,7 +27,7 @@ export const verifyAccessToken = (token) => {
     }
   };
   
-  export const verifyRefreshToken = (token) => {
+export const verifyRefreshToken = (token) => {
     try {
       return jwt.verify(token, config.refreshTokenSecret);
     } catch (err) {
