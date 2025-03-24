@@ -49,6 +49,10 @@ app.get("/", (req, res) => {
 // Implement the main router in the app
 routerAPI(app);
 
+app.get("/api/v1/swagger.json", (req, res) => {
+    res.json(swaggerSpec);
+});
+
 // Definition of the swagger docs
 app.use("/api/v1/docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
